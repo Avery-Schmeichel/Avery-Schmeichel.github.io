@@ -1,2 +1,2 @@
-# Avery-Schmeichel.github.iob
+# Avery-Schmeichel.github.io
 Art Gallery
