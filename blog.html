@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #333;
+  }
+
+  h2 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 20px;
+  }
+
+  .post {
+    border-bottom: 1px solid #eee;
+  }
+
+  .post-title {
+    font-size: 22px;
+    padding: 16px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .post-title:hover {
+    color: #666;
+  }
+
+  .arrow {
+    font-size: 14px;
+    color: #aaa;
+    transition: transform 0.2s;
+  }
+
+  .post-body {
+    display: none;
+    padding: 0 0 20px 0;
+    line-height: 1.8;
+  }
+
+  .post.open .post-body {
+    display: block;
+  }
+
+  .post.open .arrow {
+    transform: rotate(90deg);
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" style="font-size: 20px; color: #999; text-decoration: none;">&#8592; Home</a>
+
+<h2>Blog</h2>
+
+<div class="post">
+  <div class="post-title" onclick="toggle(this)">
+    Test Post
+    <span class="arrow">&#9654;</span>
+  </div>
+  <div class="post-body">
+    Write your article text here.
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-title" onclick="toggle(this)">
+    Stories from Paris
+    <span class="arrow">&#9654;</span>
+  </div>
+  <div class="post-body">
+    hello article here
+    <img src="gallery/apple_flowers.jpeg" alt="apple and flowers still life" style="width: 100%; margin-top: 15px;" />
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-title" onclick="toggle(this)">
+    Stories from Rome
+    <span class="arrow">&#9654;</span>
+  </div>
+  <div class="post-body">
+    Write your Rome article text here.
+  </div>
+</div>
+
+<script>
+  function toggle(titleEl) {
+    const post = titleEl.parentElement;
+    post.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
