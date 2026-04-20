@@ -3,8 +3,9 @@
 <head>
 <style>
 .gallery-grid {
-  column-count: 4;
-  column-gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
   padding: 5px;
 }
 
@@ -43,12 +44,7 @@
     </a>
     <div class="desc">Apple & Flowers (Oil Paint) 7/2025</div>
   </div>
- <div class="gallery">
-    <a target="_blank" href="gallery/treecat.jpeg">
-      <img src="gallery/treecat.jpeg" alt="Tree Cat">
-    </a>
-    <div class="desc">Hilo Tree Cat (Collage) 6/2024</div>
-  </div>
+
   <div class="gallery">
     <a target="_blank" href="gallery/jellyfish.jpeg">
       <img src="gallery/jellyfish.jpeg" alt="Jellyfish">
@@ -88,10 +84,15 @@
     <a target="_blank" href="gallery/pheasent.jpeg">
       <img src="gallery/pheasent.jpeg" alt="Pheasant">
     </a>
-    <div class="desc">Still Life Assortment (Acrylic) 9/2024</div>
+    <div class="desc">Still Life Assortment 9/2024</div>
   </div>
 
- 
+  <div class="gallery">
+    <a target="_blank" href="gallery/treecat.jpeg">
+      <img src="gallery/treecat.jpeg" alt="Tree Cat">
+    </a>
+    <div class="desc">Hilo Tree Cat (Collage) 6/2024</div>
+  </div>
 
   <div class="gallery">
     <a target="_blank" href="gallery/avesandcal.jpeg">
@@ -146,7 +147,7 @@
     <a target="_blank" href="gallery/compostite.jpeg">
       <img src="gallery/compostite.jpeg" alt="Composite">
     </a>
-    <div class="desc">Composite Image 10/2023</div>
+    <div class="desc">Composite Image</div>
   </div>
 
 </div>
