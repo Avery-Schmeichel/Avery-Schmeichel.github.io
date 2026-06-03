@@ -2,65 +2,205 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Main Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artwork by Aves</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-  
-      max-width: 700px;
-      margin: 80px auto;
-      padding: 0 20px;
-      color: #333;
+      min-height: 100vh;
+      background: #f5f2ed;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    header {
       text-align: center;
+      margin-bottom: 52px;
     }
 
     h1 {
-      font-size: 36px;
-      margin-bottom: 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 6vw, 52px);
+      letter-spacing: 0.08em;
+      color: #2a2420;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 40px 0;
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
     }
 
-    ul li {
-      margin: 16px 0;
+    .subtitle {
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #9a8f86;
+      margin-top: 8px;
     }
 
-    ul li a {
-      font-size: 18px;
-      color: #555;
+    nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 620px;
+    }
+
+    .nav-card {
+      position: relative;
+      display: block;
       text-decoration: none;
-      letter-spacing: 1px;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 3px;
     }
 
-    ul li a:hover {
-      color: #000;
+    .nav-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+      filter: saturate(0.85) brightness(0.88);
     }
 
-    p {
+    .nav-card:hover img {
+      transform: scale(1.04);
+      filter: saturate(1) brightness(0.78);
+    }
+
+    .nav-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, transparent 40%, rgba(20,15,10,0.55) 100%);
+      transition: background 0.4s ease;
+    }
+
+    .nav-card:hover .nav-card-overlay {
+      background: linear-gradient(160deg, rgba(20,15,10,0.1) 0%, rgba(20,15,10,0.65) 100%);
+    }
+
+    .nav-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 18px 16px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .nav-card-label span {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
       font-size: 13px;
-      color: #aaa;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #f0ece6;
     }
 
-    p a {
-      color: #aaa;
+    .nav-card-label svg {
+      opacity: 0;
+      transform: translate(-4px, 4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      color: #f0ece6;
+    }
+
+    .nav-card:hover .nav-card-label svg {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    footer {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: #b0a89e;
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: #9a8f86;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc7c0;
+    }
+
+    footer a:hover {
+      color: #5a504a;
+      border-bottom-color: #9a8f86;
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Artwork by Aves</h1>
+  <header>
+    <h1>Artwork by <em>Aves</em></h1>
+    <p class="subtitle">Paintings &middot; Collage &middot; Photography</p>
+  </header>
 
-  <ul>
-    <li><a href="gallery.html">gallery</a></li>
-    <li><a href="blog.html">blog</a></li>
-    <li><a href="https://avery-schmeichel.github.io/index4.html">shop</a></li>
-    <li><a href="https://youtube.com/@averyschmeichel529?si=9I2Fk5Y-N94JjisV">youtube</a></li>
-  </ul>
+  <nav>
+    <a class="nav-card" href="gallery.html">
+      <img src="gallery/Alaska.jpeg" alt="Gallery">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Gallery</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
 
-  <p><em>Note: This list may be incomplete. <a href="https://github.com/Avery-Schmeichel/Avery-Schmeichel.github.io/search?q=.%28html%7Cmd%7Cjs%7Ccss%7Cpy%7Cts%29&type=code">Click here to view all files via GitHub code search</a>.</em></p>
+    <a class="nav-card" href="blog.html">
+      <img src="gallery/FloralCollage.jpeg" alt="Blog">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Blog</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a class="nav-card" href="https://avery-schmeichel.github.io/index4.html">
+      <img src="gallery/peaches.jpg" alt="Shop">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Shop</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a class="nav-card" href="https://youtube.com/@averyschmeichel529?si=9I2Fk5Y-N94JjisV">
+      <img src="gallery/jellyfish.jpeg" alt="YouTube">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>YouTube</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+  </nav>
+
+  <footer>
+    <p>
+      Note: This list may be incomplete. &nbsp;
+      <a href="https://github.com/Avery-Schmeichel/Avery-Schmeichel.github.io/search?q=.%28html%7Cmd%7Cjs%7Ccss%7Cpy%7Cts%29&type=code">View all files on GitHub</a>
+    </p>
+  </footer>
 
 </body>
 </html>
