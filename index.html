@@ -63,24 +63,19 @@
       border-radius: 3px;
     }
 
-    .nav-card-bg {
-      position: absolute;
-      inset: 0;
+    .nav-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
       transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
       filter: saturate(0.85) brightness(0.88);
     }
 
-    .nav-card:hover .nav-card-bg {
+    .nav-card:hover img {
       transform: scale(1.04);
       filter: saturate(1) brightness(0.78);
     }
-
-    .bg-gallery    { background: linear-gradient(135deg, #6f8f6a, #c9b88a); }
-    .bg-blog       { background: linear-gradient(135deg, #c98a9a, #e8c9a0); }
-    .bg-shop       { background: linear-gradient(135deg, #e39a6a, #f0c27a); }
-    .bg-commission { background: linear-gradient(135deg, #5a7fa8, #a9c4d8); }
-    .bg-resources  { background: linear-gradient(135deg, #8a6fa8, #c9b0d8); }
-    .bg-artist     { background: linear-gradient(135deg, #a8865a, #d8c0a0); }
 
     .nav-card-overlay {
       position: absolute;
@@ -147,3 +142,86 @@
     }
 
     footer a:hover {
+      color: #5a504a;
+      border-bottom-color: #9a8f86;
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Artwork by <em>Aves</em></h1>
+    <p class="subtitle">Paintings &middot; Collage &middot; Photography</p>
+  </header>
+
+  <nav>
+    <a class="nav-card" href="gallery.html">
+      <img src="gallery/landscape.jpeg" alt="Gallery">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Gallery</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a class="nav-card" href="blog.html">
+      <img src="gallery/FloralCollage.jpeg" alt="Blog">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Blog</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a class="nav-card" href="https://avery-schmeichel.github.io/index4.html">
+      <img src="gallery/peaches.jpg" alt="Shop">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Shop</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a class="nav-card" href="commissions.html">
+      <img src="gallery/jellyfish.jpeg" alt="Commission Inquiry">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Commission Inquiry</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a class="nav-card" href="resources.html">
+      <img src="gallery/landscape.jpeg" alt="Art Education Resources">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Art Education Resources</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a class="nav-card" href="about.html">
+      <img src="gallery/FloralCollage.jpeg" alt="Meet the Artist">
+      <div class="nav-card-overlay"></div>
+      <div class="nav-card-label">
+        <span>Meet the Artist</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+  </nav>
+
+  <footer>
+    <p>
+      Note: This list may be incomplete. &nbsp;
+      <a href="https://github.com/Avery-Schmeichel/Avery-Schmeichel.github.io/search?q=.%28html%7Cmd%7Cjs%7Ccss%7Cpy%7Cts%29&type=code">View all files on GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>
