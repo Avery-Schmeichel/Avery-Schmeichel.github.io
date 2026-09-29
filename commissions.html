@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commission Inquiry | Art by Avery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #f5f2ed;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: #2a2420;
+      padding: 40px 20px 60px;
+    }
+
+    .wrap { max-width: 620px; margin: 0 auto; }
+
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #9a8f86;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc7c0;
+      margin-bottom: 36px;
+    }
+    .back:hover { color: #5a504a; border-bottom-color: #9a8f86; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 6vw, 48px);
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #5a504a;
+      margin-bottom: 40px;
+    }
+
+    .contact {
+      background: #fbf9f5;
+      border: 1px solid #e2dcd3;
+      border-radius: 3px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .email-address {
+      display: block;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      color: #2a2420;
+      text-decoration: none;
+      border-bottom: 1px solid #9a8f86;
+      width: fit-content;
+      margin: 0 auto 22px;
+      overflow-wrap: anywhere;
+    }
+    .email-address:hover { border-bottom-color: #2a2420; }
+
+    .button {
+      display: inline-block;
+      background: #3a322c;
+      color: #f0ece6;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      padding: 13px 28px;
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+    .button:hover { background: #2a2420; }
+
+    .include {
+      margin-top: 36px;
+    }
+
+    .include h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .include ul {
+      list-style: disc;
+      padding-left: 22px;
+    }
+
+    .include li {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #5a504a;
+    }
+
+    .note {
+      margin-top: 28px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #7a7068;
+    }
+
+    .back:focus-visible, .email-address:focus-visible, .button:focus-visible {
+      outline: 2px solid #2a2420;
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">Back to home</a>
+
+    <h1>Commission Inquiry</h1>
+    <p class="intro">Interested in a custom piece? Send me an email with your idea and I'll get back to you.</p>
+
+    <section class="contact">
+      <h2>Email me</h2>
+
+      <!-- CHANGE the email address in BOTH places below (the link and the text) -->
+      <a class="email-address" href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a>
+
+      <!-- This button opens the visitor's email app with a subject and a short template filled in.
+           CHANGE the email address here too (right after "mailto:"). -->
+      <a class="button" href="mailto:YOUR-EMAIL@example.com?subject=Commission%20inquiry&body=Hi%20Avery%2C%0A%0AI%27d%20like%20to%20ask%20about%20a%20commission.%0A%0ADescription%20of%20the%20piece%3A%0ASize%3A%0AMedium%20(if%20you%20have%20a%20preference)%3A%0ADeadline%3A%0ABudget%3A%0A%0AThank%20you!">Start an inquiry email</a>
+    </section>
+
+    <section class="include">
+      <h2>What to include</h2>
+      <ul>
+        <li>A description of what you have in mind</li>
+        <li>Size and medium, if you have a preference</li>
+        <li>Your deadline, if there is one</li>
+        <li>Your budget</li>
+        <li>Any reference images you'd like to share</li>
+      </ul>
+    </section>
+
+    <p class="note">I usually reply within a few days. Replace this sentence with your own response time and any details about pricing or how commissions work.</p>
+  </div>
+</body>
+</html>
