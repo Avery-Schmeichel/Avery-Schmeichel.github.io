@@ -1,256 +1,264 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  padding: 5px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Art by Avery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.gallery {
-  break-inside: avoid;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-  overflow: hidden;
-}
+    body {
+      min-height: 100vh;
+      background: #f5f2ed;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: #2a2420;
+      padding: 40px 20px 60px;
+    }
 
-.gallery:hover {
-  border: 1px solid #777;
-}
+    .wrap { max-width: 1160px; margin: 0 auto; }
 
-.gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #9a8f86;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc7c0;
+      margin-bottom: 36px;
+    }
+    .back:hover { color: #5a504a; border-bottom-color: #9a8f86; }
+    .back:focus-visible, .piece a:focus-visible {
+      outline: 2px solid #2a2420;
+      outline-offset: 3px;
+    }
 
-.desc {
-  padding: 15px;
-  text-align: center;
-}
-</style>
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 6vw, 48px);
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 28px 20px;
+      align-items: start;
+    }
+
+    .piece a {
+      display: block;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #e2dcd3; /* shows while an image loads */
+    }
+
+    .piece img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+      filter: saturate(0.92);
+    }
+
+    .piece a:hover img {
+      transform: scale(1.03);
+      filter: saturate(1);
+    }
+
+    .desc {
+      font-size: 14px;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      color: #5a504a;
+      text-align: center;
+      padding: 12px 6px 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .piece img { transition: none; }
+      .piece a:hover img { transform: none; }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <a class="back" href="index.html">Back to home</a>
 
-<a href="index.html" style="font-size: 20px; color: #999; text-decoration: none;">&#8592; Home</a>
+    <h1>Gallery</h1>
 
-<div class="gallery-grid">
+    <div class="gallery-grid">
 
-  <div class="gallery">
-    <a target="_blank" href="gallery/MN.jpeg">
-      <img src="gallery/MN.jpeg" alt="MN & ME">
-    </a>
-    <div class="desc">MN & ME(Acrylic, 16 inch diameter) 5/2026</div>
-  </div>
-    <div class="gallery">
-    <a target="_blank" href="CatinRome.jpeg">
-      <img src="gallery/CatinRome.jpeg" alt="Cat in Rome">
-    </a>
-    <div class="desc">Cat in Rome(Collage) 4/2026</div>
-  </div>
-   <div class="gallery">
-    <a target="_blank" href="gallery/Cat in rome study.jpeg">
-      <img src="gallery/Cat in rome study.jpeg" alt="Cat in rome study">
-    </a>
-    <div class="desc">Cat in rome study(Collage) 4/2026</div>
-  </div>
-   <div class="gallery">
-    <a target="_blank" href="gallery/selfportaittwentysix.jpeg">
-      <img src="gallery/selfportaittwentysix.jpeg" alt="selfportaittwentysix">
-      </a>
-    <div class="desc">Self Portait 2026(Acrylic) 3/2026</div>
-  </div>
-   <div class="gallery">
-    <a target="_blank" href="gallery/Alaska.jpeg">
-      <img src="gallery/Alaska.jpeg" alt="Alaska">
-    </a>
-    <div class="desc">Alaska(oil) 2/2026</div>
-  </div>
-    <div class="gallery">
-    <a target="_blank" href="gallery/bookandapples.jpeg">
-      <img src="gallery/bookandapples.jpeg" alt="boo and apples">
-    </a>
-    <div class="desc">flowers and apple study two(oil paint) 1/2026</div>
-  </div>
-   <div class="gallery">
-    <a target="_blank" href="gallery/FloralCollage.jpeg">
-      <img src="gallery/FloralCollage.jpeg" alt="Floral Collage">
-    </a>
-    <div class="desc">Floral Collage (Collage) 1/2026</div>
-  </div>
-  <div class="gallery">
-    <a target="_blank" href="gallery/Kilauea.jpeg">
-      <img src="gallery/Kilauea.jpeg" alt="Kilauea">
-    </a>
-    <div class="desc">Kilauea(Collage) 12/2025</div>
-  </div>
-  <div class="gallery">
-    <a target="_blank" href="gallery/rooster.jpeg">
-      <img src="gallery/rooster.jpeg" alt="Rooster">
-    </a>
-    <div class="desc">Rooster(Collage) 12/2025</div>
- 
-  </div>
-   <div class="gallery">
-    <a target="_blank" href="gallery/Onomea.jpeg">
-      <img src="gallery/Onomea.jpeg" alt="Onomea">
-    </a>
-    <div class="desc">Onomea(watercolor) 11/2025</div>
-  </div>
-    <div class="gallery">
-    <a target="_blank" href="gallery/rainbowfalls.jpeg">
-      <img src="gallery/rainbowfalls.jpeg" alt="rainbowfalls">
-    </a>
-    <div class="desc">rainbow falls(watercolor) 10/2025</div>
-  </div>
-  <div class="gallery">
-    <a target="_blank" href="gallery/lavatube.jpeg">
-      <img src="gallery/lavatube.jpeg" alt="lavatube">
-    </a>
-    <div class="desc">lava tube(watercolor) 10/2025</div>
-  </div>
-  <div class="gallery">
-    <a target="_blank" href="gallery/Arles.jpeg">
-      <img src="gallery/Arles.jpeg" alt="Arles">
-    </a>
-    <div class="desc">lava tube(watercolor) 9/2025</div>
-  </div>
-    <div class="gallery">
-    <a target="_blank" href="gallery/peaches.jpg">
-      <img src="gallery/peaches.jpg" alt="peaches">
-    </a>
-    <div class="desc">peaches(watercolor) 9/2025</div>
-  </div>
-  <div class="gallery">
-    <a target="_blank" href="gallery/skagway.jpeg">
-      <img src="gallery/skagway.jpeg" alt="skagway">
-    </a>
-    <div class="desc">skagway(watercolor) 9/2025</div>
-  </div>
-    <div class="gallery">
-    <a target="_blank" href="gallery/apple_flowers.jpeg">
-      <img src="gallery/apple_flowers.jpeg" alt="Apple Flowers">
-    </a>
-    <div class="desc">Apple & Flowers (Oil Paint) 7/2025</div>
+      <div class="piece">
+        <a target="_blank" href="gallery/MN.jpeg"><img loading="lazy" src="gallery/MN.jpeg" alt="MN &amp; ME"></a>
+        <div class="desc">MN &amp; ME (Acrylic, 16 inch diameter) 5/2026</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/CatinRome.jpeg"><img loading="lazy" src="gallery/CatinRome.jpeg" alt="Cat in Rome"></a>
+        <div class="desc">Cat in Rome (Collage) 4/2026</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/Cat in rome study.jpeg"><img loading="lazy" src="gallery/Cat in rome study.jpeg" alt="Cat in Rome study"></a>
+        <div class="desc">Cat in Rome study (Collage) 4/2026</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/selfportaittwentysix.jpeg"><img loading="lazy" src="gallery/selfportaittwentysix.jpeg" alt="Self portrait 2026"></a>
+        <div class="desc">Self Portait 2026 (Acrylic) 3/2026</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/Alaska.jpeg"><img loading="lazy" src="gallery/Alaska.jpeg" alt="Alaska"></a>
+        <div class="desc">Alaska (Oil) 2/2026</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/bookandapples.jpeg"><img loading="lazy" src="gallery/bookandapples.jpeg" alt="Flowers and apple study two"></a>
+        <div class="desc">Flowers and apple study two (Oil paint) 1/2026</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/FloralCollage.jpeg"><img loading="lazy" src="gallery/FloralCollage.jpeg" alt="Floral Collage"></a>
+        <div class="desc">Floral Collage (Collage) 1/2026</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/Kilauea.jpeg"><img loading="lazy" src="gallery/Kilauea.jpeg" alt="Kilauea"></a>
+        <div class="desc">Kilauea (Collage) 12/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/rooster.jpeg"><img loading="lazy" src="gallery/rooster.jpeg" alt="Rooster"></a>
+        <div class="desc">Rooster (Collage) 12/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/Onomea.jpeg"><img loading="lazy" src="gallery/Onomea.jpeg" alt="Onomea"></a>
+        <div class="desc">Onomea (Watercolor) 11/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/rainbowfalls.jpeg"><img loading="lazy" src="gallery/rainbowfalls.jpeg" alt="Rainbow Falls"></a>
+        <div class="desc">Rainbow Falls (Watercolor) 10/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/lavatube.jpeg"><img loading="lazy" src="gallery/lavatube.jpeg" alt="Lava tube"></a>
+        <div class="desc">Lava Tube (Watercolor) 10/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/Arles.jpeg"><img loading="lazy" src="gallery/Arles.jpeg" alt="Arles"></a>
+        <div class="desc">Lava Tube (Watercolor) 9/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/peaches.jpg"><img loading="lazy" src="gallery/peaches.jpg" alt="Peaches"></a>
+        <div class="desc">Peaches (Watercolor) 9/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/skagway.jpeg"><img loading="lazy" src="gallery/skagway.jpeg" alt="Skagway"></a>
+        <div class="desc">Skagway (Watercolor) 9/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/apple_flowers.jpeg"><img loading="lazy" src="gallery/apple_flowers.jpeg" alt="Apple and Flowers"></a>
+        <div class="desc">Apple &amp; Flowers (Oil Paint) 7/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/treecat.jpeg"><img loading="lazy" src="gallery/treecat.jpeg" alt="Tree Cat"></a>
+        <div class="desc">Hilo Tree Cat (Collage) 6/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/jellyfish.jpeg"><img loading="lazy" src="gallery/jellyfish.jpeg" alt="Jellyfish"></a>
+        <div class="desc">Jellyfish (Watercolor and Ink) 7/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/chickens.jpeg"><img loading="lazy" src="gallery/chickens.jpeg" alt="Chickens"></a>
+        <div class="desc">Kauai Chickens at Tunnels (Oil Paint) 7/2025</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/abstracttree.jpeg"><img loading="lazy" src="gallery/abstracttree.jpeg" alt="Abstract Tree"></a>
+        <div class="desc">Willow (Oil Paint) 11/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/landscape.jpeg"><img loading="lazy" src="gallery/landscape.jpeg" alt="Landscape"></a>
+        <div class="desc">Peaceful Fall (Oil Paint) 10/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/skull.jpeg"><img loading="lazy" src="gallery/skull.jpeg" alt="Skull"></a>
+        <div class="desc">Still Life #1 (Acrylic) 9/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/pheasent.jpeg"><img loading="lazy" src="gallery/pheasent.jpeg" alt="Pheasant"></a>
+        <div class="desc">Still Life Assortment 9/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/firstoil.jpeg"><img loading="lazy" src="gallery/firstoil.jpeg" alt="First oil painting"></a>
+        <div class="desc">First Oil Painting 9/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/avesandcal.jpeg"><img loading="lazy" src="gallery/avesandcal.jpeg" alt="Aves and Cal"></a>
+        <div class="desc">Sibling (Graphite) 4/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/trash.jpeg"><img loading="lazy" src="gallery/trash.jpeg" alt="Trash to Treasure"></a>
+        <div class="desc">Trash to Treasure (Trash) 4/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/ink.jpeg"><img loading="lazy" src="gallery/ink.jpeg" alt="Ink"></a>
+        <div class="desc">Moo (Ink) 3/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/rope.jpeg"><img loading="lazy" src="gallery/rope.jpeg" alt="Rope"></a>
+        <div class="desc">Chiaroscuro (Charcoal) 2/2024</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/light.jpg"><img loading="lazy" src="gallery/light.jpg" alt="Light"></a>
+        <div class="desc">Light as a Subject 9/2023</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/landscapepic.jpeg"><img loading="lazy" src="gallery/landscapepic.jpeg" alt="Coon Rapids Dam Regional Park"></a>
+        <div class="desc">Coon Rapids Dam Regional Park 10/2023</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/Lilypad.jpg"><img loading="lazy" src="gallery/Lilypad.jpg" alt="Lilypad"></a>
+        <div class="desc">Photo #1 8/2023</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/compostite.jpeg"><img loading="lazy" src="gallery/compostite.jpeg" alt="Composite"></a>
+        <div class="desc">Composite Image</div>
+      </div>
+
+      <div class="piece">
+        <a target="_blank" href="gallery/firstoil.jpeg"><img loading="lazy" src="gallery/compostite.jpeg" alt="Composite"></a>
+        <div class="desc">Composite Image</div>
+      </div>
+
     </div>
- <div class="gallery">
-    <a target="_blank" href="gallery/treecat.jpeg">
-      <img src="gallery/treecat.jpeg" alt="Tree Cat">
-    </a>
-    <div class="desc">Hilo Tree Cat (Collage) 6/2024</div>
   </div>
-  <div class="gallery">
-    <a target="_blank" href="gallery/jellyfish.jpeg">
-      <img src="gallery/jellyfish.jpeg" alt="Jellyfish">
-    </a>
-    <div class="desc">Jellyfish (Watercolor and Ink) 7/2025</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/chickens.jpeg">
-      <img src="gallery/chickens.jpeg" alt="Chickens">
-    </a>
-    <div class="desc">Kauai Chickens at Tunnels (Oil Paint) 7/2025</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/abstracttree.jpeg">
-      <img src="gallery/abstracttree.jpeg" alt="Abstract Tree">
-    </a>
-    <div class="desc">Willow (Oil Paint) 11/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/landscape.jpeg">
-      <img src="gallery/landscape.jpeg" alt="Landscape">
-    </a>
-    <div class="desc">Peaceful Fall (Oil Paint) 10/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/skull.jpeg">
-      <img src="gallery/skull.jpeg" alt="Skull">
-    </a>
-    <div class="desc">Still Life #1 (Acrylic) 9/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/pheasent.jpeg">
-      <img src="gallery/pheasent.jpeg" alt="Pheasant">
-    </a>
-    <div class="desc">Still Life Assortment 9/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/firstoil.jpeg">
-      <img src="gallery/firstoil.jpeg" alt="firstoil">
-    </a>
-    <div class="desc">First Oil Painting 9/2024</div>
-  </div>
- 
-  <div class="gallery">
-    <a target="_blank" href="gallery/avesandcal.jpeg">
-      <img src="gallery/avesandcal.jpeg" alt="Aves and Cal">
-    </a>
-    <div class="desc">Sibling (Graphite) 4/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/trash.jpeg">
-      <img src="gallery/trash.jpeg" alt="Trash to Treasure">
-    </a>
-    <div class="desc">Trash to Treasure (Trash) 4/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/ink.jpeg">
-      <img src="gallery/ink.jpeg" alt="Ink">
-    </a>
-    <div class="desc">Moo (Ink) 3/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/rope.jpeg">
-      <img src="gallery/rope.jpeg" alt="Rope">
-    </a>
-    <div class="desc">Chiaroscuro (Charcoal) 2/2024</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/light.jpg">
-      <img src="gallery/light.jpg" alt="Light">
-    </a>
-    <div class="desc">Light as a Subject 9/2023</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/landscapepic.jpeg">
-      <img src="gallery/landscapepic.jpeg" alt="Landscape Pic">
-    </a>
-    <div class="desc">Coon Rapids Dam Regional Park 10/2023</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/Lilypad.jpg">
-      <img src="gallery/Lilypad.jpg" alt="Lilypad">
-    </a>
-    <div class="desc">Photo #1 8/2023</div>
-  </div>
-
-  <div class="gallery">
-    <a target="_blank" href="gallery/compostite.jpeg">
-      <img src="gallery/compostite.jpeg" alt="Composite">
-    </a>
-    <div class="desc">Composite Image</div>
-  </div>
-  <div class="gallery">
-    <a target="_blank" href="gallery/firstoil.jpeg">
-      <img src="gallery/compostite.jpeg" alt="First Oil Painting">
-    </a>
-    <div class="desc">Composite Image</div>
-  </div>
-</div>
 </body>
 </html>
