@@ -54,53 +54,31 @@
       max-width: 620px;
     }
 
+    /* Text-only cards: a solid color tile with the label inside */
     .nav-card {
       position: relative;
-      display: block;
-      text-decoration: none;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      border-radius: 3px;
-    }
-
-    .nav-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
-      filter: saturate(0.85) brightness(0.88);
-    }
-
-    .nav-card:hover img {
-      transform: scale(1.04);
-      filter: saturate(1) brightness(0.78);
-    }
-
-    .nav-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(160deg, transparent 40%, rgba(20,15,10,0.55) 100%);
-      transition: background 0.4s ease;
-    }
-
-    .nav-card:hover .nav-card-overlay {
-      background: linear-gradient(160deg, rgba(20,15,10,0.1) 0%, rgba(20,15,10,0.65) 100%);
-    }
-
-    .nav-card-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px 18px 16px;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       gap: 12px;
+      text-decoration: none;
+      aspect-ratio: 3/2;
+      padding: 20px 18px 16px;
+      border-radius: 3px;
+      background: #3a322c;
+      transition: background 0.3s ease;
     }
 
-    .nav-card-label span {
+    .nav-card:hover {
+      background: #2a2420;
+    }
+
+    .nav-card:focus-visible {
+      outline: 2px solid #2a2420;
+      outline-offset: 3px;
+    }
+
+    .nav-card span {
       font-family: 'Jost', sans-serif;
       font-weight: 300;
       font-size: 19px;
@@ -110,7 +88,7 @@
       color: #f0ece6;
     }
 
-    .nav-card-label svg {
+    .nav-card svg {
       flex-shrink: 0;
       opacity: 0;
       transform: translate(-4px, 4px);
@@ -118,7 +96,8 @@
       color: #f0ece6;
     }
 
-    .nav-card:hover .nav-card-label svg {
+    .nav-card:hover svg,
+    .nav-card:focus-visible svg {
       opacity: 1;
       transform: translate(0, 0);
     }
@@ -150,6 +129,9 @@
       nav {
         grid-template-columns: 1fr;
       }
+      .nav-card {
+        aspect-ratio: 5/2;
+      }
     }
   </style>
 </head>
@@ -162,57 +144,33 @@
 
   <nav>
     <a class="nav-card" href="gallery.html">
-      <img src="gallery/landscape.jpeg" alt="Gallery">
-      <div class="nav-card-overlay"></div>
-      <div class="nav-card-label">
-        <span>Gallery</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
+      <span>Gallery</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
     <a class="nav-card" href="blog.html">
-      <img src="gallery/FloralCollage.jpeg" alt="Blog">
-      <div class="nav-card-overlay"></div>
-      <div class="nav-card-label">
-        <span>Blog</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
+      <span>Blog</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
     <a class="nav-card" href="https://avery-schmeichel.github.io/index4.html">
-      <img src="gallery/peaches.jpg" alt="Shop">
-      <div class="nav-card-overlay"></div>
-      <div class="nav-card-label">
-        <span>Shop</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
+      <span>Shop</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
     <a class="nav-card" href="commissions.html">
-      <img src="gallery/jellyfish.jpeg" alt="Commission Inquiry">
-      <div class="nav-card-overlay"></div>
-      <div class="nav-card-label">
-        <span>Commission Inquiry</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
+      <span>Commission Inquiry</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
     <a class="nav-card" href="resources.html">
-      <img src="gallery/landscape.jpeg" alt="Art Education Resources">
-      <div class="nav-card-overlay"></div>
-      <div class="nav-card-label">
-        <span>Art Education Resources</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
+      <span>Art Education Resources</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
     <a class="nav-card" href="about.html">
-      <img src="gallery/FloralCollage.jpeg" alt="Meet the Artist">
-      <div class="nav-card-overlay"></div>
-      <div class="nav-card-label">
-        <span>Meet the Artist</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
+      <span>Meet the Artist</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </nav>
 
