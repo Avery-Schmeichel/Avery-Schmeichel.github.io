@@ -1,104 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-  body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Art by Avery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 0 20px;
-    color: #333;
-  }
+    body {
+      min-height: 100vh;
+      background: #f5f2ed;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: #2a2420;
+      padding: 40px 20px 60px;
+    }
 
-  h2 {
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 20px;
-  }
+    .wrap { max-width: 700px; margin: 0 auto; }
 
-  .post {
-    border-bottom: 1px solid #eee;
-  }
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #9a8f86;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc7c0;
+      margin-bottom: 36px;
+    }
+    .back:hover { color: #5a504a; border-bottom-color: #9a8f86; }
 
-  .post-title {
-    font-size: 22px;
-    padding: 16px 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 6vw, 48px);
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: 44px;
+    }
 
-  .post-title:hover {
-    color: #666;
-  }
+    .posts { border-top: 1px solid #ddd6cc; }
 
-  .arrow {
-    font-size: 14px;
-    color: #aaa;
-    transition: transform 0.2s;
-  }
+    .post { border-bottom: 1px solid #ddd6cc; }
 
-  .post-body {
-    display: none;
-    padding: 0 0 20px 0;
-    line-height: 1.8;
-  }
+    .post-title {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 1.25;
+      color: #2a2420;
+      transition: color 0.2s ease;
+    }
+    .post-title:hover { color: #7a7068; }
 
-  .post.open .post-body {
-    display: block;
-  }
+    .arrow {
+      flex-shrink: 0;
+      color: #9a8f86;
+      transition: transform 0.2s ease;
+    }
+    .post.open .arrow { transform: rotate(90deg); }
 
-  .post.open .arrow {
-    transform: rotate(90deg);
-  }
-</style>
+    .post-body {
+      padding: 0 0 26px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #4a413a;
+    }
+    .post-body[hidden] { display: none; }
+
+    .post-body img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 16px;
+      border-radius: 3px;
+    }
+
+    .back:focus-visible, .post-title:focus-visible {
+      outline: 2px solid #2a2420;
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .post-title, .arrow { transition: none; }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <a class="back" href="index.html">Back to home</a>
 
-<a href="index.html" style="font-size: 20px; color: #999; text-decoration: none;">&#8592; Home</a>
+    <h1>Blog</h1>
 
-<h2>Blog</h2>
+    <div class="posts">
 
-<div class="post">
-  <div class="post-title" onclick="toggle(this)">
-    Test Post
-    <span class="arrow">&#9654;</span>
+      <!--
+        TO ADD A POST: copy one <div class="post"> block, paste it in this list,
+        and change the title and the text inside <div class="post-body">.
+      -->
+
+      <div class="post">
+        <button class="post-title" type="button" aria-expanded="false" aria-controls="post-2">
+          test
+          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <div class="post-body" id="post-2" hidden>
+          hello article here
+          <img src="gallery/apple_flowers.jpeg" alt="apple and flowers still life">
+        </div>
+      </div>
+
+      <div class="post">
+        <button class="post-title" type="button" aria-expanded="false" aria-controls="post-3">
+          test
+          <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <div class="post-body" id="post-3" hidden>
+          Write your article text here.
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="post-body">
-    Write your text here.
-  </div>
-</div>
 
-<div class="post">
-  <div class="post-title" onclick="toggle(this)">
-    test
-    <span class="arrow">&#9654;</span>
-  </div>
-  <div class="post-body">
-    hello article here
-    <img src="gallery/apple_flowers.jpeg" alt="apple and flowers still life" style="width: 100%; margin-top: 15px;" />
-  </div>
-</div>
-
-<div class="post">
-  <div class="post-title" onclick="toggle(this)">
-   test
-    <span class="arrow">&#9654;</span>
-  </div>
-  <div class="post-body">
-    Write your article text here.
-  </div>
-</div>
-
-<script>
-  function toggle(titleEl) {
-    const post = titleEl.parentElement;
-    post.classList.toggle('open');
-  }
-</script>
-
+  <script>
+    document.querySelectorAll('.post-title').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var post = button.parentElement;
+        var body = document.getElementById(button.getAttribute('aria-controls'));
+        var open = post.classList.toggle('open');
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+        body.hidden = !open;
+      });
+    });
+  </script>
 </body>
 </html>
