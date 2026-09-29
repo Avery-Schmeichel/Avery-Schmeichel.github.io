@@ -1,1 +1,256 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Education Resources | Art by Avery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #f5f2ed;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: #2a2420;
+      padding: 40px 20px 60px;
+    }
+
+    .wrap { max-width: 760px; margin: 0 auto; }
+
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #9a8f86;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc7c0;
+      margin-bottom: 36px;
+    }
+    .back:hover { color: #5a504a; border-bottom-color: #9a8f86; }
+
+    header { text-align: center; margin-bottom: 40px; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 6vw, 48px);
+      letter-spacing: 0.08em;
+    }
+
+    .intro {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #6b625a;
+      margin-top: 12px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      border-bottom: 1px solid #ddd6cc;
+      margin-bottom: 32px;
+    }
+
+    .tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      padding: 10px 4px 12px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      color: #9a8f86;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .tab:hover { color: #5a504a; }
+    .tab[aria-selected="true"] {
+      color: #2a2420;
+      border-bottom-color: #2a2420;
+    }
+    .tab:focus-visible, .back:focus-visible, .item a:focus-visible {
+      outline: 2px solid #2a2420;
+      outline-offset: 3px;
+    }
+
+    /* Panels */
+    .panel[hidden] { display: none; }
+
+    .list { display: grid; gap: 14px; }
+
+    .item {
+      background: #fbf9f5;
+      border: 1px solid #e2dcd3;
+      border-radius: 3px;
+      padding: 20px 22px;
+    }
+
+    .item h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .item p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #5a504a;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      list-style: none;
+    }
+    .meta li {
+      font-size: 13px;
+      color: #7a7068;
+      border: 1px solid #ddd6cc;
+      border-radius: 20px;
+      padding: 3px 12px;
+    }
+
+    .item a.open {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 14px;
+      color: #2a2420;
+      text-decoration: none;
+      border-bottom: 1px solid #9a8f86;
+    }
+    .item a.open:hover { border-bottom-color: #2a2420; }
+
+    @media (max-width: 480px) {
+      .tabs { gap: 24px; }
+      .tab { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tab { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">Back to home</a>
+
+    <header>
+      <h1>Art Education Resources</h1>
+      <p class="intro">Lesson plans and teaching materials you can use in your classroom or studio.</p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Art education sections">
+      <button class="tab" role="tab" id="tab-lessons" aria-controls="panel-lessons" aria-selected="true">Lesson plans</button>
+      <button class="tab" role="tab" id="tab-resources" aria-controls="panel-resources" aria-selected="false" tabindex="-1">Resources</button>
+    </div>
+
+    <!-- LESSON PLANS -->
+    <section class="panel" id="panel-lessons" role="tabpanel" aria-labelledby="tab-lessons">
+      <div class="list">
+
+        <!--
+          TO ADD A LESSON PLAN: copy one <article class="item"> block below,
+          paste it in this list, and change the text and link.
+          Put your PDFs in an "education" folder next to this file.
+        -->
+
+        <article class="item">
+          <h2>Sample lesson: Watercolor resist landscapes</h2>
+          <p>Replace this with a short summary of the lesson: what students make and what they learn.</p>
+          <ul class="meta">
+            <li>Grades 3&ndash;5</li>
+            <li>Painting</li>
+            <li>60 minutes</li>
+          </ul>
+          <a class="open" href="education/watercolor-resist-lesson.pdf">Open lesson plan (PDF)</a>
+        </article>
+
+        <article class="item">
+          <h2>Sample lesson: Collage self-portraits</h2>
+          <p>Replace this with a short summary of the lesson: what students make and what they learn.</p>
+          <ul class="meta">
+            <li>Grades 6&ndash;8</li>
+            <li>Collage</li>
+            <li>2 class periods</li>
+          </ul>
+          <a class="open" href="education/collage-self-portraits.pdf">Open lesson plan (PDF)</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="panel" id="panel-resources" role="tabpanel" aria-labelledby="tab-resources" hidden>
+      <div class="list">
+
+        <!--
+          TO ADD A RESOURCE: copy one <article class="item"> block below
+          and change the text and link.
+        -->
+
+        <article class="item">
+          <h2>Sample resource: Color wheel handout</h2>
+          <p>Replace this with a short description of the handout, worksheet, or link.</p>
+          <ul class="meta">
+            <li>Printable</li>
+            <li>All ages</li>
+          </ul>
+          <a class="open" href="education/color-wheel.pdf">Download handout (PDF)</a>
+        </article>
+
+        <article class="item">
+          <h2>Sample resource: Recommended reading</h2>
+          <p>Replace this with a short description of a book, website, or video you recommend.</p>
+          <ul class="meta">
+            <li>Link</li>
+            <li>Teachers</li>
+          </ul>
+          <a class="open" href="https://example.com">Visit site</a>
+        </article>
+
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+      var hashes = { 'tab-lessons': 'lesson-plans', 'tab-resources': 'resources' };
+
+      function select(tab, focus) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+        if (focus) tab.focus();
+        history.replaceState(null, '', '#' + hashes[tab.id]);
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { select(tab, false); });
+        tab.addEventListener('keydown', function (e) {
+          var next = null;
+          if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+          if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+          if (next) { e.preventDefault(); select(next, true); }
+        });
+      });
+
+      // Open the right tab from a link like resources.html#resources
+      if (location.hash === '#resources') select(document.getElementById('tab-resources'), false);
+    })();
+  </script>
+</body>
+</html>
