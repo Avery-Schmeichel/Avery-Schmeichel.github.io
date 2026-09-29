@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Artist | Art by Avery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #f5f2ed;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: #2a2420;
+      padding: 40px 20px 60px;
+    }
+
+    .wrap { max-width: 900px; margin: 0 auto; }
+
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #9a8f86;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc7c0;
+      margin-bottom: 36px;
+    }
+    .back:hover { color: #5a504a; border-bottom-color: #9a8f86; }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 6vw, 48px);
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    /* Photo + text side by side */
+    .profile {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .photo img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      border-radius: 3px;
+      background: #e2dcd3; /* shows while the photo loads */
+    }
+
+    .photo figcaption {
+      font-size: 13px;
+      color: #9a8f86;
+      margin-top: 10px;
+    }
+
+    .bio h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+
+    .bio p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #4a413a;
+      margin-bottom: 16px;
+    }
+
+    .download {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #2a2420;
+      text-decoration: none;
+      border-bottom: 1px solid #9a8f86;
+    }
+    .download:hover { border-bottom-color: #2a2420; }
+
+    .back:focus-visible, .download:focus-visible {
+      outline: 2px solid #2a2420;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 700px) {
+      .profile { grid-template-columns: 1fr; gap: 28px; }
+      .photo { max-width: 420px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">Back to home</a>
+
+    <h1>Meet the Artist</h1>
+
+    <div class="profile">
+      <figure class="photo">
+        <!-- Change the file name below to your photo, and update the alt text -->
+        <img src="gallery/artist-photo.jpg" alt="Avery in the studio">
+        <figcaption>Avery in the studio</figcaption>
+      </figure>
+
+      <div class="bio">
+        <h2>Hello, I'm Avery</h2>
+        <!-- Replace these paragraphs with your bio. Add or delete <p> lines as needed. -->
+        <p>Write the first paragraph of your bio here. Introduce yourself and what you make.</p>
+        <p>Write a second paragraph here about your background, your teaching, or what inspires your work.</p>
+        <p>Add a closing paragraph here, such as how people can commission work or get in touch.</p>
+
+        <a class="download" href="gallery/artist%20bio.pdf" download>Download my full bio (PDF)</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
