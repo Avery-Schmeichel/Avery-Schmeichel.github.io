@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,12 +130,47 @@
     }
     .item a.open:hover { border-bottom-color: #2a2420; }
 
+    /* Helpful links (Resources tab) */
+    .links-section { margin-top: 0; }
+
+    .links-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .links-note {
+      font-size: 14px;
+      color: #9a8f86;
+      margin-bottom: 16px;
+    }
+
+    .links { list-style: none; }
+    .links li { border-top: 1px solid #ddd6cc; }
+    .links li:last-child { border-bottom: 1px solid #ddd6cc; }
+
+    .links a {
+      display: block;
+      padding: 16px 4px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s ease, padding-left 0.2s ease;
+    }
+    .links a:hover,
+    .links a:focus-visible { background: #efe9e0; padding-left: 12px; }
+    .links a:focus-visible { outline: 2px solid #2a2420; outline-offset: -2px; }
+
+    .link-title { display: block; font-size: 17px; font-weight: 400; color: #2a2420; }
+    .link-desc  { display: block; font-size: 14px; line-height: 1.6; color: #6b625a; margin-top: 2px; }
+
     @media (max-width: 480px) {
       .tabs { gap: 24px; }
       .tab { font-size: 16px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .tab { transition: none; }
+      .tab, .links a { transition: none; }
     }
   </style>
 </head>
@@ -191,33 +225,59 @@
 
     <!-- RESOURCES -->
     <section class="panel" id="panel-resources" role="tabpanel" aria-labelledby="tab-resources" hidden>
-      <div class="list">
+      <!-- HELPFUL LINKS -->
+      <div class="links-section">
+        <h2>Helpful links</h2>
+        <p class="links-note">Websites worth bookmarking for teaching and making art.</p>
 
         <!--
-          TO ADD A RESOURCE: copy one <article class="item"> block below
-          and change the text and link.
+          TO ADD A LINK: copy one <li>...</li> block below, paste it in the list,
+          and change the web address, title, and description.
         -->
-
-        <article class="item">
-          <h2>Sample resource here</h2>
-          <p>description here</p>
-          <ul class="meta">
-            <li>Printable</li>
-            <li>age level here </li>
-          </ul>
-          <a class="open" href="education/color-wheel.pdf">Download handout (PDF)</a>
-        </article>
-
-        <article class="item">
-          <h2>Sample resource here</h2>
-          <p>description here</p>
-          <ul class="meta">
-            <li>Link</li>
-            <li>Teachers</li>
-          </ul>
-          <a class="open" href="https://example.com">Visit site</a>
-        </article>
-
+        <ul class="links">
+          <li>
+            <a href="https://www.metmuseum.org/art/collection" target="_blank" rel="noopener">
+              <span class="link-title">The Met Collection</span>
+              <span class="link-desc">Search over a million works from around the world, many in the public domain.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.theartofeducation.edu/" target="_blank" rel="noopener">
+              <span class="link-title">The Art of Education University</span>
+              <span class="link-desc">Articles, lesson ideas, and professional development for art teachers.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.arteducators.org/" target="_blank" rel="noopener">
+              <span class="link-title">National Art Education Association</span>
+              <span class="link-desc">Professional community, standards, and teaching resources for art educators.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://example.com" target="_blank" rel="noopener">
+              <span class="link-title">Your link title here</span>
+              <span class="link-desc">A short note on why this site is helpful.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://example.com" target="_blank" rel="noopener">
+              <span class="link-title">Your link title here</span>
+              <span class="link-desc">A short note on why this site is helpful.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://example.com" target="_blank" rel="noopener">
+              <span class="link-title">Your link title here</span>
+              <span class="link-desc">A short note on why this site is helpful.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://example.com" target="_blank" rel="noopener">
+              <span class="link-title">Your link title here</span>
+              <span class="link-desc">A short note on why this site is helpful.</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
