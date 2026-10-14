@@ -30,7 +30,7 @@
     main {
       flex: 1;
       width: 100%;
-      max-width: 560px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 72px 28px 48px;
       display: flex;
@@ -64,20 +64,20 @@
       color: #b5694c;
     }
 
-    nav ul { list-style: none; max-width: 340px; margin: 0 auto; text-align: left; }
+    nav ul { list-style: none; max-width: 540px; margin: 0 auto; text-align: left; }
     nav li { border-bottom: 1px solid #ddd6cc; }
     nav li:first-child { border-top: 1px solid #ddd6cc; }
     nav a {
       display: flex;
-      padding: 13px 2px;
+      padding: 18px 4px;
       text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 0.2em;
+      font-size: clamp(17px, 3.2vw, 24px);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #4a413a;
       transition: padding-left 0.25s ease, color 0.25s ease;
     }
-    nav a:hover { padding-left: 10px; color: #2a2420; }
+    nav a:hover { padding-left: 14px; color: #2a2420; }
 
 
 
@@ -96,6 +96,7 @@
     .d10 { color: #6f8a96; left: 14%;  bottom: 8%;  width: 80px;  transform: rotate(-8deg); }
     .d11 { color: #b5694c; right: 14%; bottom: 7%;  width: 110px; transform: rotate(4deg); }
     .d12 { color: #c98a94; left: 26%;  top: 7%;     width: 50px;  transform: rotate(-10deg); }
+    .d13 { color: #b5694c; left: 5%;   top: 33%;    width: 110px; transform: rotate(-12deg); }
 
     main, footer { position: relative; z-index: 1; }
 
@@ -115,10 +116,10 @@
 
 
     @media (max-width: 1000px) {
-      .d7, .d8, .d4 { display: none; }
+      .d7, .d8, .d4, .d13 { display: none; }
     }
     @media (max-width: 760px) {
-      .d3, .d4, .d6, .d7, .d8, .d10, .d11 { display: none; }
+      .d3, .d4, .d6, .d7, .d8, .d10, .d11, .d13 { display: none; }
       .d9 { right: 16%; }
       .d12 { left: 20%; top: 5%; }
       .d1 { width: 90px; left: 4%; top: 5%; }
@@ -144,6 +145,7 @@
     <svg class="d9" viewBox="0 0 44 30"><path d="M3 22 C 10 4, 20 4, 20 16 C 20 26, 30 26, 41 8"/></svg>
     <svg class="d10" viewBox="0 0 80 20"><path d="M3 15 L 18 4 L 33 15 L 48 4 L 63 15 L 77 5"/></svg>
     <svg class="d11" viewBox="0 0 100 40"><path d="M4 26 C 12 6, 26 6, 22 22 C 20 34, 36 34, 38 20 C 40 6, 56 6, 52 22 C 50 34, 66 34, 68 20 C 70 8, 84 10, 96 24"/></svg>
+    <svg class="d13" viewBox="0 0 100 100"><path d="M50 50 C 50 44, 57 44, 57 50 C 57 59, 43 59, 43 49 C 43 38, 62 36, 64 50 C 66 66, 40 70, 34 52 C 28 32, 58 22, 72 42 C 84 60, 62 82, 38 76"/></svg>
     <svg class="d12" viewBox="0 0 50 24"><path d="M3 18 C 8 2, 18 2, 22 14 C 26 24, 38 24, 47 6"/></svg>
   </div>
 
