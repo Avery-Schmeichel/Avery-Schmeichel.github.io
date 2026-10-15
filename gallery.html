@@ -47,11 +47,17 @@
 
     /* Jump links to each medium */
     .medium-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px 24px;
-      margin-bottom: 56px;
+      padding: 14px 0;
+      margin-bottom: 40px;
+      background: #f5f2ed;
+      border-bottom: 1px solid #ddd6cc;
     }
     .medium-nav a {
       font-size: 13px;
@@ -63,9 +69,10 @@
       padding-bottom: 2px;
     }
     .medium-nav a:hover { color: #2a2420; border-bottom-color: #9a8f86; }
+    .medium-nav a.active { color: #2a2420; border-bottom-color: #2a2420; }
 
     /* One section per medium */
-    .medium { margin-bottom: 64px; scroll-margin-top: 24px; }
+    .medium { margin-bottom: 64px; scroll-margin-top: 90px; }
 
     .medium h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -111,6 +118,11 @@
       color: #5a504a;
       text-align: center;
       padding: 12px 6px 0;
+    }
+
+    @media (max-width: 700px) {
+      .medium-nav { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; gap: 8px 22px; }
+      .medium-nav a { white-space: nowrap; flex-shrink: 0; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -237,7 +249,11 @@
           <div class="desc">MN &amp; ME (Acrylic, 16 inch diameter) 5/2026</div>
         </div>
 
-        
+        <div class="piece">
+          <a target="_blank" rel="noopener" href="gallery/selfportaittwentysix.jpeg"><img loading="lazy" src="gallery/selfportaittwentysix.jpeg" alt="Self portrait 2026"></a>
+          <div class="desc">Self Portait 2026 (Acrylic) 3/2026</div>
+        </div>
+
         <div class="piece">
           <a target="_blank" rel="noopener" href="gallery/skull.jpeg"><img loading="lazy" src="gallery/skull.jpeg" alt="Skull"></a>
           <div class="desc">Still Life #1 (Acrylic) 9/2024</div>
@@ -391,5 +407,23 @@
     </section>
 
   </div>
+
+  <script>
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.medium-nav a'));
+      var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+      function update() {
+        var current = -1;
+        sections.forEach(function (s, i) {
+          if (s && s.getBoundingClientRect().top <= 120) current = i;
+        });
+        links.forEach(function (a, i) { a.classList.toggle('active', i === current); });
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>
