@@ -172,11 +172,55 @@
     @media (prefers-reduced-motion: reduce) {
       .tab, .links a { transition: none; }
     }
+
+    /* Shared site menu */
+    .sitenav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #ddd6cc;
+    }
+    .sitenav .wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 21px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: #2a2420;
+    }
+    .sitenav nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    .sitenav nav a {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #7a7068;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .sitenav nav a:hover,
+    .sitenav nav a[aria-current="page"] { color: #2a2420; border-bottom-color: #2a2420; }
+    .sitenav a:focus-visible { outline: 2px solid #2a2420; outline-offset: 3px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <a class="back" href="index.html">Back to home</a>
+    <header class="sitenav">
+      <a class="wordmark" href="index.html">Art by Avery</a>
+      <nav aria-label="Main">
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="https://avery-schmeichel.github.io/shop.html">Shop</a>
+        <a href="commissions.html">Commissions</a>
+        <a href="resources.html" aria-current="page">Education</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
 
     <header>
       <h1>Art Education Resources</h1>
