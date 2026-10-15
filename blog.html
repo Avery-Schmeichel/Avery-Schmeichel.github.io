@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Art by Avery</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Art history essays, travel notes and studio stories from Avery.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Art by Avery">
+  <meta property="og:title" content="Blog | Art by Avery">
+  <meta property="og:description" content="Art history essays, travel notes and studio stories from Avery.">
+  <meta property="og:url" content="https://avery-schmeichel.github.io/blog.html">
+  <meta property="og:image" content="https://avery-schmeichel.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Art by Avery, artist and educator, with colorful hand-drawn squiggles">
+  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -143,6 +157,24 @@
       outline-offset: 3px;
     }
 
+    /* Topic icons beside each category heading */
+    .category h2 { display: flex; align-items: center; gap: 12px; }
+    .cat-icon {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ic-history   { color: #b5694c; }
+    .ic-travel    { color: #6f8a96; }
+    .ic-studio    { color: #c9a24a; }
+    .ic-education { color: #8a9a6b; }
+    .ic-therapy   { color: #c98a94; }
+
     /* Drafts: hidden from visitors, visible with blog.html?drafts */
     .post.draft { display: none; }
     .show-drafts .post.draft { display: block; border-left: 2px dashed #c9a24a; padding-left: 14px; }
@@ -237,7 +269,7 @@
     <div class="categories">
 
       <section class="category" id="art-history" aria-labelledby="art-history-heading">
-        <h2 id="art-history-heading">Art History</h2>
+        <h2 id="art-history-heading"><svg class="cat-icon ic-history" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9 L12 4 L21 9 Z"/><path d="M6 11.5 V17 M10 11.5 V17 M14 11.5 V17 M18 11.5 V17"/><path d="M4 20 H20"/></svg>Art History</h2>
         <div class="posts">
 
       <div class="post">
@@ -279,7 +311,7 @@
       </section>
 
       <section class="category" id="travel" aria-labelledby="travel-heading">
-        <h2 id="travel-heading">Travel</h2>
+        <h2 id="travel-heading"><svg class="cat-icon ic-travel" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12 H21"/></svg>Travel</h2>
         <div class="posts">
 
       <div class="post">
@@ -506,7 +538,7 @@
       </section>
 
       <section class="category" id="studio-art" aria-labelledby="studio-art-heading">
-        <h2 id="studio-art-heading">Studio Art</h2>
+        <h2 id="studio-art-heading"><svg class="cat-icon ic-studio" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="16" cy="10" r="1.2"/><circle cx="14.5" cy="15.5" r="1.8"/></svg>Studio Art</h2>
         <div class="posts">
 
       <div class="post">
@@ -516,13 +548,16 @@
         </button>
         <div class="post-body" id="post-4" hidden>
 
-          <p>papermaking!</p>
+          <p>Paste your first paragraph here.</p>
 
-            <img src="gallery/paper.jpg" alt="paper">
+            <img src="gallery/bazar.jpg" alt="Inside the Grand Bazaar in Istanbul">
           
-            <img src="gallery/paper2.jpg" alt="paper2">
+            <img src="gallery/bazar.jpg" alt="Inside the Grand Bazaar in Istanbul">
           
-           
+            <img src="gallery/bazar.jpg" alt="Inside the Grand Bazaar in Istanbul">
+          
+            <img src="gallery/bazar.jpg" alt="Inside the Grand Bazaar in Istanbul">
+
         </div>
       </div>
 
@@ -548,7 +583,7 @@
       </section>
 
       <section class="category" id="art-education" aria-labelledby="art-education-heading">
-        <h2 id="art-education-heading">Art Education</h2>
+        <h2 id="art-education-heading"><svg class="cat-icon ic-education" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9 L12 4 L22 9 L12 14 Z"/><path d="M6 11.5 V16 C6 17.5 9 19 12 19 S18 17.5 18 16 V11.5"/><path d="M22 9 V14"/></svg>Art Education</h2>
         <div class="posts">
 
       <div class="post draft">
@@ -569,7 +604,7 @@
       </section>
 
       <section class="category" id="art-therapy" aria-labelledby="art-therapy-heading">
-        <h2 id="art-therapy-heading">Art Therapy</h2>
+        <h2 id="art-therapy-heading"><svg class="cat-icon ic-therapy" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 C5 15 3 11.5 3 8.5 A4.5 4.5 0 0 1 12 6.5 A4.5 4.5 0 0 1 21 8.5 C21 11.5 19 15 12 20 Z"/></svg>Art Therapy</h2>
         <div class="posts">
 
       <div class="post draft">
