@@ -118,11 +118,55 @@
       .piece img { transition: none; }
       .piece a:hover img { transform: none; }
     }
+
+    /* Shared site menu */
+    .sitenav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #ddd6cc;
+    }
+    .sitenav .wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 21px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: #2a2420;
+    }
+    .sitenav nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    .sitenav nav a {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #7a7068;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .sitenav nav a:hover,
+    .sitenav nav a[aria-current="page"] { color: #2a2420; border-bottom-color: #2a2420; }
+    .sitenav a:focus-visible { outline: 2px solid #2a2420; outline-offset: 3px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <a class="back" href="index.html">Back to home</a>
+    <header class="sitenav">
+      <a class="wordmark" href="index.html">Art by Avery</a>
+      <nav aria-label="Main">
+        <a href="gallery.html" aria-current="page">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="https://avery-schmeichel.github.io/shop.html">Shop</a>
+        <a href="commissions.html">Commissions</a>
+        <a href="resources.html">Education</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
 
     <h1>Gallery</h1>
 
@@ -146,8 +190,6 @@
     <section class="medium" id="oil" aria-labelledby="oil-heading">
       <h2 id="oil-heading">Oil Painting</h2>
       <div class="gallery-grid">
-
-        
 
         <div class="piece">
           <a target="_blank" rel="noopener" href="gallery/bookandapples.jpeg"><img loading="lazy" src="gallery/bookandapples.jpeg" alt="Flowers and apple study two"></a>
@@ -235,7 +277,8 @@
           <a target="_blank" rel="noopener" href="gallery/peaches.jpg"><img loading="lazy" src="gallery/peaches.jpg" alt="Peaches"></a>
           <div class="desc">Peaches (Watercolor) 9/2025</div>
         </div>
-         <div class="piece">
+
+        <div class="piece">
           <a target="_blank" rel="noopener" href="gallery/chanel.jpg"><img loading="lazy" src="gallery/chanel.jpg" alt="chanel"></a>
           <div class="desc">Chanel (Watercolor) 12/2024</div>
         </div>
@@ -290,7 +333,7 @@
           <a target="_blank" rel="noopener" href="gallery/noelle.jpg"><img loading="lazy" src="gallery/noelle.jpg" alt="noelle"></a>
           <div class="desc">Noelle (Collage) 6/2026</div>
         </div>
-      </div>      </div>
+      </div>
     </section>
 
     <section class="medium" id="drawing" aria-labelledby="drawing-heading">
