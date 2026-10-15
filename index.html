@@ -112,6 +112,16 @@
 
 
 
+    /* Instagram icon */
+    .social {
+      display: inline-flex;
+      margin-top: 40px;
+      color: #7a7068;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .social:hover { color: #b5694c; transform: translateY(-2px); }
+    .social:focus-visible { outline: 2px solid #2a2420; outline-offset: 4px; }
+
     /* one small piece that changes */
     .stamp { width: 128px; margin: 44px auto 0; }
     .stamp a {
@@ -203,6 +213,10 @@
         </a>
         <figcaption class="stamp-cap" aria-live="off">Apple &amp; Flowers, Oil</figcaption>
       </figure>
+
+      <a class="social" href="https://www.instagram.com/artwork_by_aves/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg>
+      </a>
     </div>
 
   </main>
