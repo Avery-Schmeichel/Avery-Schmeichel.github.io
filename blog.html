@@ -143,6 +143,21 @@
       outline-offset: 3px;
     }
 
+    /* Drafts: hidden from visitors, visible with blog.html?drafts */
+    .post.draft { display: none; }
+    .show-drafts .post.draft { display: block; border-left: 2px dashed #c9a24a; padding-left: 14px; }
+    .category[hidden], .blog-nav a[hidden] { display: none; }
+    .draft-banner {
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #7a7068;
+      background: #f1e7c8;
+      border-radius: 3px;
+      padding: 10px 14px;
+      margin-bottom: 28px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .post-title, .arrow { transition: none; }
@@ -213,6 +228,8 @@
       and the text inside <div class="post-body">.
       Put each paragraph inside its own <p> ... </p> so the spacing shows up.
       The number must be used twice: in aria-controls="post-19" and id="post-19".
+      DRAFTS: a post with class="post draft" is hidden from visitors. To publish it, change
+      class="post draft" to class="post". To see your drafts, open blog.html?drafts
       TO ADD A NEW CATEGORY: copy a whole <section class="category"> block and
       add a matching link in the nav at the top.
     -->
@@ -287,7 +304,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-6">
           Norway Sketchbook 2026
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -305,7 +322,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-7">
           Hawaii Sketchbook 2025
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -323,7 +340,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-8">
           Paris 2024
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -341,7 +358,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-9">
           South of France 2024
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -359,7 +376,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-10">
           Amsterdam 2024
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -377,7 +394,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-11">
           Rome 2026
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -395,7 +412,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-12">
           Pompeii 2026
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -413,7 +430,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-13">
           Venice 2026
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -431,7 +448,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-14">
           Ravenna 2026
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -449,7 +466,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-15">
           Florence 2026
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -467,7 +484,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-16">
           Istanbul 2026
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -512,7 +529,7 @@
         </div>
       </div>
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-5">
           Mosaic Public Art Project
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -537,7 +554,7 @@
         <h2 id="art-education-heading">Art Education</h2>
         <div class="posts">
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-18">
           Post title here
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -558,7 +575,7 @@
         <h2 id="art-therapy-heading">Art Therapy</h2>
         <div class="posts">
 
-      <div class="post">
+      <div class="post draft">
         <button class="post-title" type="button" aria-expanded="false" aria-controls="post-17">
           Post title here
           <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -588,6 +605,24 @@
         body.hidden = !open;
       });
     });
+
+    // Hide drafts (and any section with nothing but drafts) unless the page is opened as blog.html?drafts
+    (function () {
+      var preview = /[?&]drafts(\b|=)/.test(location.search);
+      if (preview) {
+        document.body.classList.add('show-drafts');
+        var banner = document.createElement('p');
+        banner.className = 'draft-banner';
+        banner.textContent = 'Draft preview: dashed posts are drafts and are hidden from visitors.';
+        document.querySelector('h1').insertAdjacentElement('afterend', banner);
+      }
+      document.querySelectorAll('.category').forEach(function (section) {
+        var show = preview || section.querySelectorAll('.post:not(.draft)').length > 0;
+        section.hidden = !show;
+        var link = document.querySelector('.blog-nav a[href="#' + section.id + '"]');
+        if (link) link.hidden = !show;
+      });
+    })();
   </script>
 </body>
 </html>
