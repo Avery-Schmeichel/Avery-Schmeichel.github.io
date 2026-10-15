@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meet the Artist | Art by Avery</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Meet Avery, a Minnesota mixed media artist focused on collage and art education.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Art by Avery">
+  <meta property="og:title" content="Meet the Artist | Art by Avery">
+  <meta property="og:description" content="Meet Avery, a Minnesota mixed media artist focused on collage and art education.">
+  <meta property="og:url" content="https://avery-schmeichel.github.io/about.html">
+  <meta property="og:image" content="https://avery-schmeichel.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Art by Avery, artist and educator, with colorful hand-drawn squiggles">
+  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +56,7 @@
     /* Photo + text side by side */
     .profile {
       display: grid;
-      grid-template-columns: 5fr 7fr;
+      grid-template-columns: 4fr 8fr;
       gap: 44px;
       align-items: start;
     }
@@ -65,15 +79,16 @@
     .bio h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
-      font-size: 30px;
-      margin-bottom: 14px;
+      font-size: clamp(34px, 5vw, 46px);
+      line-height: 1.15;
+      margin-bottom: 18px;
     }
 
     .bio p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #4a413a;
-      margin-bottom: 16px;
+      font-size: clamp(17px, 2.2vw, 19px);
+      line-height: 1.85;
+      color: #3a322c;
+      margin-bottom: 18px;
     }
 
     .download {
@@ -92,8 +107,10 @@
     }
 
     @media (max-width: 700px) {
-      .profile { grid-template-columns: 1fr; gap: 28px; }
-      .photo { max-width: 420px; margin: 0 auto; }
+      .profile { grid-template-columns: 1fr; gap: 32px; }
+      .bio { order: 1; }                                   /* text first */
+      .photo { order: 2; width: 220px; max-width: 60%; margin: 0 auto; }   /* smaller photo below */
+      h1 { margin-bottom: 28px; }
     }
 
     /* Shared site menu */
@@ -171,6 +188,7 @@ Award. I have a passion for traveling the world.I was able to study art
 history in multiple field experiences that took place in France,the Netherlands,
 Italy and Turkey. Observing the world me is what drives and inspires my
 creative work. </p>
+
 
       </div>
     </div>
