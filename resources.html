@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art Education Resources | Art by Avery</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Lesson plans, curriculum maps, unit plans and helpful links for art educators.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Art by Avery">
+  <meta property="og:title" content="Art Education Resources | Art by Avery">
+  <meta property="og:description" content="Lesson plans, curriculum maps, unit plans and helpful links for art educators.">
+  <meta property="og:url" content="https://avery-schmeichel.github.io/resources.html">
+  <meta property="og:image" content="https://avery-schmeichel.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Art by Avery, artist and educator, with colorful hand-drawn squiggles">
+  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -91,7 +105,7 @@
       padding: 20px 22px;
     }
 
-    .item h2 {
+    .item h2, .item h3 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       font-size: 24px;
@@ -130,6 +144,16 @@
     }
     .item a.open:hover { border-bottom-color: #2a2420; }
 
+    /* Section headings inside the Curriculum tab */
+    .sub-head {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .sub-head:not(:first-child) { margin-top: 44px; }
+
     /* Helpful links (Resources tab) */
     .links-section { margin-top: 0; }
 
@@ -166,8 +190,8 @@
     .link-desc  { display: block; font-size: 14px; line-height: 1.6; color: #6b625a; margin-top: 2px; }
 
     @media (max-width: 480px) {
-      .tabs { gap: 24px; }
-      .tab { font-size: 16px; }
+      .tabs { gap: 0 20px; flex-wrap: wrap; }
+      .tab { font-size: 15px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .tab, .links a { transition: none; }
@@ -229,6 +253,7 @@
 
     <div class="tabs" role="tablist" aria-label="Art education sections">
       <button class="tab" role="tab" id="tab-lessons" aria-controls="panel-lessons" aria-selected="true">Lesson plans</button>
+      <button class="tab" role="tab" id="tab-curriculum" aria-controls="panel-curriculum" aria-selected="false" tabindex="-1">Curriculum &amp; units</button>
       <button class="tab" role="tab" id="tab-resources" aria-controls="panel-resources" aria-selected="false" tabindex="-1">Resources</button>
     </div>
 
@@ -262,6 +287,53 @@
             <li>Time</li>
           </ul>
           <a class="open" href="education/collage-self-portraits.pdf">Open lesson plan (PDF)</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CURRICULUM MAPS & UNIT PLANS -->
+    <section class="panel" id="panel-curriculum" role="tabpanel" aria-labelledby="tab-curriculum" hidden>
+
+      <h2 class="sub-head">Curriculum maps</h2>
+      <div class="list">
+
+        <!--
+          TO ADD A CURRICULUM MAP: copy one <article class="item"> block below,
+          paste it in this list, and change the text and link.
+          Put your PDFs in the "education" folder next to this file.
+        -->
+
+        <article class="item">
+          <h3>Sample curriculum map</h3>
+          <p>Summary of the curriculum map here.</p>
+          <ul class="meta">
+            <li>Grade level here</li>
+            <li>Course or subject</li>
+            <li>Length (semester, year)</li>
+          </ul>
+          <a class="open" href="education/curriculum-map-sample.pdf">Open curriculum map (PDF)</a>
+        </article>
+
+      </div>
+
+      <h2 class="sub-head">Unit plans</h2>
+      <div class="list">
+
+        <!--
+          TO ADD A UNIT PLAN: copy one <article class="item"> block below,
+          paste it in this list, and change the text and link.
+        -->
+
+        <article class="item">
+          <h3>Sample unit plan</h3>
+          <p>Summary of the unit plan here.</p>
+          <ul class="meta">
+            <li>Grade level here</li>
+            <li>Medium</li>
+            <li>Number of lessons or weeks</li>
+          </ul>
+          <a class="open" href="education/unit-plan-sample.pdf">Open unit plan (PDF)</a>
         </article>
 
       </div>
@@ -329,7 +401,7 @@
   <script>
     (function () {
       var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
-      var hashes = { 'tab-lessons': 'lesson-plans', 'tab-resources': 'resources' };
+      var hashes = { 'tab-lessons': 'lesson-plans', 'tab-curriculum': 'curriculum', 'tab-resources': 'resources' };
 
       function select(tab, focus) {
         tabs.forEach(function (t) {
@@ -352,8 +424,9 @@
         });
       });
 
-      // Open the right tab from a link like resources.html#resources
-      if (location.hash === '#resources') select(document.getElementById('tab-resources'), false);
+      // Open the right tab from a link like resources.html#curriculum
+      var wanted = location.hash.slice(1);
+      tabs.forEach(function (t) { if (hashes[t.id] === wanted) select(t, false); });
     })();
   </script>
 </body>
