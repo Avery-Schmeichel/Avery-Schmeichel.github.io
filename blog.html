@@ -144,6 +144,44 @@
       overflow-wrap: anywhere;
     }
 
+    /* Download card for PDFs */
+    .file-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 20px;
+      padding: 14px 16px;
+      background: #fbf9f5;
+      border: 1px solid #e2dcd3;
+      border-radius: 3px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s ease;
+    }
+    .file-link + .file-link { margin-top: 12px; }
+    .file-link:hover { background: #efe9e0; }
+    .file-link:focus-visible { outline: 2px solid #2a2420; outline-offset: 3px; }
+    .file-link svg {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      color: #b5694c;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .file-title { display: block; font-size: 16px; color: #2a2420; }
+    .file-note  { display: block; font-size: 13px; color: #7a7068; }
+
+    /* Smaller photos in the Papermaking post */
+    #post-4 img {
+      max-width: 260px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .post-body img {
       width: 100%;
       height: auto;
@@ -550,11 +588,15 @@ Art History Site Observation:Grand Bazar (Istanbul, Turkey)  3/16/2026
 
           <p>Papermaking!</p>
 
-            <img src="gallery/paper.jpg" alt="paper">
-          
-            <img src="gallery/paper2.jpg" alt="paper 2">
-          
-           
+          <a class="file-link" href="pdfs/blue-jean-beating-log.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3 H14 L19 8 V21 H6 Z"/><path d="M14 3 V8 H19"/><path d="M9 13 H16 M9 17 H16"/></svg>
+            <span><span class="file-title">Blue jean beating log</span><span class="file-note">Papermaking &middot; PDF</span></span>
+          </a>
+
+          <img src="gallery/paper.jpg" alt="paper">
+
+          <img src="gallery/paper2.jpg" alt="paper 2">
+
         </div>
       </div>
 
