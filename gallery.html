@@ -145,6 +145,92 @@
       .piece a:hover img { transform: none; }
     }
 
+    /* Artwork viewer */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 56px 16px 28px;
+      background: rgba(32, 27, 24, 0.93);
+    }
+    .lightbox[hidden] { display: none; }
+    .lb-figure {
+      margin: 0;
+      min-width: 0;
+      max-width: min(900px, 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .lb-figure img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 190px);
+      width: auto;
+      height: auto;
+      border-radius: 2px;
+      background: #3a322c;
+    }
+    .lb-title {
+      display: block;
+      margin-top: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.2;
+      color: #f5f2ed;
+    }
+    .lb-meta {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #cfc7bd;
+    }
+    .lb-count {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: #cfc7bd;
+    }
+    .lb-btn {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 242, 237, 0.45);
+      background: transparent;
+      color: #f5f2ed;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .lb-btn:hover { background: rgba(245, 242, 237, 0.12); }
+    .lb-btn:focus-visible { outline: 2px solid #f5f2ed; outline-offset: 3px; }
+    .lb-close { position: absolute; top: 12px; right: 14px; }
+    .lb-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    @media (max-width: 700px) {
+      .lightbox { padding: 56px 12px 84px; }
+      .lb-prev, .lb-next { position: absolute; bottom: 22px; }
+      .lb-prev { left: 22px; }
+      .lb-next { right: 22px; }
+      .lb-figure img { max-height: calc(100vh - 260px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lb-btn { transition: none; }
+    }
+
     /* Shared site menu */
     .sitenav {
       display: flex;
@@ -412,6 +498,108 @@
     </section>
 
   </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer" hidden>
+    <p class="lb-count" id="lb-count"></p>
+    <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Close viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></button>
+    <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Previous piece"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19"/></svg></button>
+    <figure class="lb-figure">
+      <img id="lb-img" src="" alt="">
+      <figcaption aria-live="polite"><span class="lb-title" id="lb-title"></span><span class="lb-meta" id="lb-meta"></span></figcaption>
+    </figure>
+    <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Next piece"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19"/></svg></button>
+  </div>
+
+  <script>
+    (function () {
+      var pieces = Array.prototype.slice.call(document.querySelectorAll('.piece'));
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lb-img');
+      var titleEl = document.getElementById('lb-title');
+      var metaEl = document.getElementById('lb-meta');
+      var countEl = document.getElementById('lb-count');
+      var closeBtn = document.getElementById('lb-close');
+      var prevBtn = document.getElementById('lb-prev');
+      var nextBtn = document.getElementById('lb-next');
+      var index = 0, opener = null, touchX = null;
+
+      // "Jellyfish (Watercolor and Ink) 7/2025" -> title, medium, date
+      function parse(text) {
+        var m = text.match(/^(.*?)\s*(?:\((.*)\))?\s*(\d{1,2}\/\d{4})?$/) || [];
+        return { title: (m[1] || text).trim(), medium: (m[2] || '').trim(), date: (m[3] || '').trim() };
+      }
+
+      function show(i) {
+        index = (i + pieces.length) % pieces.length;
+        var piece = pieces[index];
+        var link = piece.querySelector('a');
+        var thumb = link.querySelector('img');
+        var info = parse(piece.querySelector('.desc').textContent.replace(/\s+/g, ' ').trim());
+        var section = piece.closest('.medium');
+        var medium = info.medium || (section ? section.querySelector('h2').textContent : '');
+
+        img.src = link.getAttribute('href');
+        img.alt = thumb.alt;
+        titleEl.textContent = info.title;
+        metaEl.textContent = [medium, info.date].filter(Boolean).join('  \u00b7  ');
+        countEl.textContent = (index + 1) + ' of ' + pieces.length;
+
+        [index + 1, index - 1].forEach(function (n) {
+          var l = pieces[(n + pieces.length) % pieces.length].querySelector('a');
+          new Image().src = l.getAttribute('href');
+        });
+      }
+
+      function open(i, trigger) {
+        opener = trigger;
+        show(i);
+        box.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function close() {
+        box.hidden = true;
+        document.body.style.overflow = '';
+        if (opener) opener.focus();
+      }
+
+      pieces.forEach(function (piece, i) {
+        var link = piece.querySelector('a');
+        link.addEventListener('click', function (e) {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          open(i, link);
+        });
+      });
+
+      closeBtn.addEventListener('click', close);
+      prevBtn.addEventListener('click', function () { show(index - 1); });
+      nextBtn.addEventListener('click', function () { show(index + 1); });
+      box.addEventListener('click', function (e) { if (e.target === box) close(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (box.hidden) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowLeft') show(index - 1);
+        else if (e.key === 'ArrowRight') show(index + 1);
+        else if (e.key === 'Tab') {
+          var items = [closeBtn, prevBtn, nextBtn];
+          var pos = items.indexOf(document.activeElement);
+          e.preventDefault();
+          items[(pos + (e.shiftKey ? -1 : 1) + items.length) % items.length].focus();
+        }
+      });
+
+      box.addEventListener('touchstart', function (e) { touchX = e.changedTouches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', function (e) {
+        if (touchX === null) return;
+        var dx = e.changedTouches[0].clientX - touchX;
+        touchX = null;
+        if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+    })();
+  </script>
 
   <script>
     (function () {
